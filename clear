@@ -1,0 +1,29 @@
+[33mcommit c3e7d4dc0f8945d70f43be344c30b7b7a5befe31[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: simon <perezsimon.u@gmail.com>
+Date:   Sat Oct 24 13:16:34 2026 -0300
+
+    Corregir ruta de vstest usando setup-vstest
+
+[33mcommit afc38e20463fabda080dd98f21492236d25aab58[m
+Author: simon <perezsimon.u@gmail.com>
+Date:   Sat Oct 24 13:05:48 2026 -0300
+
+    Corregir nomre de rama a master en pipeline
+
+[33mcommit 58ee4a5c334a52f13ddf4bcf70585546c43135f0[m
+Author: simon <perezsimon.u@gmail.com>
+Date:   Sat Oct 24 12:53:02 2026 -0300
+
+    Agregar pipeline de GitHub Actions
+
+[33mcommit 6b2846c200d7def408ae62c810b26f7c632cc62d[m
+Author: user <user@DESKTOP-R2D4R0L>
+Date:   Fri Oct 23 22:57:30 2026 -0300
+
+    Agregar archivos de proyecto.
+
+[33mcommit 66122b2cd0be66ee68b67860e1d5a9c20bc0a8cd[m
+Author: user <user@DESKTOP-R2D4R0L>
+Date:   Fri Oct 23 22:57:28 2026 -0300
+
+    Agregar .gitignore y .gitattributes.
