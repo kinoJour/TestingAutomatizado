@@ -8,7 +8,6 @@ on:
 
 jobs:
   build-and-test:
-    # Crucial: Usamos Windows Server porque .NET Framework lo requiere
     runs-on: windows-latest 
 
     steps:
@@ -21,6 +20,10 @@ jobs:
     - name: Configurar NuGet
       uses: nuget/setup-nuget@v2
 
+    # NUEVO PASO CRUCIAL: Agrega las herramientas de Visual Studio (como vstest) al entorno
+    - name: Configurar Herramientas de Prueba de Visual Studio
+      uses: microsoft/setup-vstest@v3
+
     - name: Restaurar Paquetes NuGet
       run: nuget restore TestingAutomatizado.sln
 
@@ -28,5 +31,5 @@ jobs:
       run: msbuild TestingAutomatizado.sln /p:Configuration=Debug /p:Platform="Any CPU"
 
     - name: Ejecutar Pruebas con VSTest
-      # Usamos el ejecutor nativo de Visual Studio incluido en el runner de Windows
+      # Ahora la máquina sabrá exactamente qué es vstest.console.exe gracias al paso de arriba
       run: vstest.console.exe Prime.Services.Tests\bin\Debug\Prime.Services.Tests.dll
