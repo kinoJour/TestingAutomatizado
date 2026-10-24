@@ -1,0 +1,32 @@
+name: .NET Framework CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    # Crucial: Usamos Windows Server porque .NET Framework lo requiere
+    runs-on: windows-latest 
+
+    steps:
+    - name: Descargar codigo del repositorio
+      uses: actions/checkout@v4
+
+    - name: Configurar MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Configurar NuGet
+      uses: nuget/setup-nuget@v2
+
+    - name: Restaurar Paquetes NuGet
+      run: nuget restore TestingAutomatizado.sln
+
+    - name: Compilar Solucion (Debug)
+      run: msbuild tu-solucion.sln /p:Configuration=Debug /p:Platform="Any CPU"
+
+    - name: Ejecutar Pruebas con VSTest
+      # Usamos el ejecutor nativo de Visual Studio incluido en el runner de Windows
+      run: vstest.console.exe Prime.Services.Tests\bin\Debug\Prime.Services.Tests.dll
