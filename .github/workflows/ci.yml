@@ -2,9 +2,9 @@ name: .NET Framework CI Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   build-and-test:
@@ -25,7 +25,7 @@ jobs:
       run: nuget restore TestingAutomatizado.sln
 
     - name: Compilar Solucion (Debug)
-      run: msbuild tu-solucion.sln /p:Configuration=Debug /p:Platform="Any CPU"
+      run: msbuild TestingAutomatizado.sln /p:Configuration=Debug /p:Platform="Any CPU"
 
     - name: Ejecutar Pruebas con VSTest
       # Usamos el ejecutor nativo de Visual Studio incluido en el runner de Windows
